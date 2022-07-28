@@ -1,0 +1,83 @@
+.intro {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(395px, 1fr));
+  grid-gap: 40px;
+  place-items: center;
+  .btn-primary {
+    padding: 0 25px;
+    height: 50px;
+  }
+  @include maxBreakpoint($mobilexLarge) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 75px 0;
+  }
+}
+.intro__image {
+  height: 550px;
+  object-fit: cover;
+  img {
+    width: 100%;
+    height: 100%;
+    &:first-child {
+      @include maxBreakpoint($mobilexLarge) {
+        display: none;
+      }
+    }
+    &:last-child {
+      @include minBreakpoint($mobilexLarge) {
+        display: none;
+      }
+    }
+  }
+  @include maxBreakpoint($mobilexLarge) {
+    height: auto;
+    margin: 0 -12px;
+    order: 1;
+  }
+}
+
+.intro__content {
+  vertical-align: middle;
+  h1 {
+    color: $mainColor;
+    font-size: 70px;
+    @include maxBreakpoint($mobilexLarge) {
+      font-size: 35px;
+    }
+  }
+  span {
+    display: block;
+    @include maxBreakpoint($mobilexLarge) {
+      display: inline-block;
+    }
+  }
+  p {
+    color: $gray;
+    margin: 30px 0;
+    max-width: 430px;
+    font-size: 18px;
+    @include maxBreakpoint($mobilexLarge) {
+      font-size: 16px;
+    }
+  }
+  @include maxBreakpoint($mobilexLarge) {
+    order: 2;
+    text-align: center;
+  }
+}
+
+.intro__sponsers {
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  @include maxBreakpoint($mobilexLarge) {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  }
+  grid-gap: 20px;
+  img {
+    width: 100%;
+  }
+}

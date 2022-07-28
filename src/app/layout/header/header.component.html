@@ -1,0 +1,63 @@
+<div class="overlay" [class.show]="showOverlay" (click)="hideOverlay()"></div>
+<header>
+  <div class="container">
+    <a class="header__logo"><img src="assets/images/logo.svg" alt="logo" /></a>
+    <nav class="header__nav" [class.mobile-menu]="openMobileMenu">
+      <button type="button" class="btn header__close" (click)="hideOverlay()">
+        <img src="assets/images/icon-close-menu.svg" alt="icon close menu" />
+      </button>
+      <ul class="header__list">
+        <ng-container *ngFor="let item of navLinks">
+          <li *ngIf="!item.hasDropdown">
+            <a [routerLink]="item.route" (click)="hideOverlay()">
+              {{ item.title }}
+            </a>
+          </li>
+          <li *ngIf="item.hasDropdown" ngbDropdown>
+            <div ngbDropdown>
+              <span ngbDropdownAnchor ngbDropdownToggle>
+                {{ item.title }}
+                <svg viewBox="0 0 10 6">
+                  <use xlink:href="assets/images/sprite.svg#arrow-down"></use>
+                </svg>
+              </span>
+              <ul class="dropdown-menu" ngbDropdownMenu>
+                <li
+                  ngbDropdownItem
+                  *ngFor="let subItem of item.children"
+                  routerLink="{{ subItem.route }}"
+                >
+                  <a routerLink="{{ subItem.route }}">
+                    <img
+                      *ngIf="subItem.icon != ''"
+                      [src]="'assets/images/' + subItem.icon + '.svg'"
+                      alt=""
+                    />
+                    {{ subItem.title }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ng-container>
+      </ul>
+    </nav>
+    <div class="header__right">
+      <button
+        type="button"
+        class="btn header__toggler"
+        (click)="mobileMenuToggle()"
+      >
+        <img src="assets/images/icon-menu.svg" alt="menu icon" />
+      </button>
+
+      <div
+        class="btns-group header__buttons"
+        [class.mobile-menu]="openMobileMenu"
+      >
+        <a class="btn btn-link">Login</a>
+        <a class="btn btn-outline">Register</a>
+      </div>
+    </div>
+  </div>
+</header>
