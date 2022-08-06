@@ -1,17 +1,16 @@
 .intro {
   width: 100%;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(395px, 1fr));
-  grid-gap: 40px;
-  place-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   .btn-primary {
     padding: 0 25px;
     height: 50px;
   }
   @include maxBreakpoint($mobilexLarge) {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 75px 0;
+    flex-direction: column;
   }
 }
 .intro__image {
@@ -39,12 +38,13 @@
 }
 
 .intro__content {
-  vertical-align: middle;
+  margin-top: 100px;
   h1 {
     color: $mainColor;
     font-size: 70px;
     @include maxBreakpoint($mobilexLarge) {
       font-size: 35px;
+      margin-top: 40px;
     }
   }
   span {
@@ -55,7 +55,7 @@
   }
   p {
     color: $gray;
-    margin: 30px 0;
+    margin: 30px 0 40px;
     max-width: 430px;
     font-size: 18px;
     @include maxBreakpoint($mobilexLarge) {
@@ -66,10 +66,13 @@
     order: 2;
     text-align: center;
   }
+  @include maxBreakpoint($mobilexLarge) {
+    margin-top: 0;
+  }
 }
 
 .intro__sponsers {
-  margin-top: 50px;
+  margin-top: 60px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));

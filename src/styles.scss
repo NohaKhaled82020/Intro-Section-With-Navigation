@@ -1,4 +1,13 @@
-/* Importing Bootstrap SCSS file. */
+@font-face {
+  font-family: "Epilogue";
+  font-weight: 500;
+  src: url("assets/fonts/Epilogue-Medium.ttf");
+}
+@font-face {
+  font-family: "Epilogue";
+  font-weight: 700;
+  src: url("assets/fonts/Epilogue-Bold.ttf");
+}
 @import "~bootstrap/scss/bootstrap";
 
 @import "assets//scss/variables";

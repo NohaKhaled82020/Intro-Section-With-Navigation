@@ -15,7 +15,12 @@
           </li>
           <li *ngIf="item.hasDropdown" ngbDropdown>
             <div ngbDropdown>
-              <span ngbDropdownAnchor ngbDropdownToggle>
+              <span
+                ngbDropdownAnchor
+                ngbDropdownToggle
+                role="button"
+                aria-pressed="false"
+              >
                 {{ item.title }}
                 <svg viewBox="0 0 10 6">
                   <use xlink:href="assets/images/sprite.svg#arrow-down"></use>
